@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+$family-primary: "Roboto", sans-serif;
+$family-secondary: "Heebo", sans-serif;
+
+$color-hs: #222;
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+
+@mixin h2 {
+    color: $color-hs;
+    font-family: "Heebo", sans-serif;
+    font-size: 2.25em;
+    text-transform: uppercase;
+}
+
+@mixin p($color: #777,$font-family: "Roboto", $size:0.875em, $lheight:26px) {
+    color: $color;
+    font-family: $font-family;
+    font-size: $size;
+    line-height: $lheight;
+}
+
+@mixin d($size) {
+    @if $size == large {
+        @media (max-width: 992px) {
+            @content;
+        }
+    } @else if $size == tablet {
+        @media (max-width:768px) {
+            @content;
+        }
+    } @else if $size == device-m {
+        @media (max-width:480px) {
+            @content;
+        }
+    }@else if $size == device-small {
+        @media (max-width:320px) {
+            @content;
+        }
+    }
+}
